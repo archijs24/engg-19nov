@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Engineering Year Selection App</title>
+		<style>
+			*{font-size:2vw;font-family:Calibri;}
+			body{background-color:azure;}
+			form{border:groove;border-radius:2vw;background-color:white;width:50%;padding:20px;}
+			h1{border:groove;border-radius:2vw;background-color:white;width:50%;padding:10px;}
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1>Engineering Year Selection App</h1>
+		<form onsubmit="find()">
+		<label>Student Name:</label>
+		<input type="text" id="name" placeholder="enter name">
+		<br/><br/>
+		<label>Select Engineering Year :</label>
+		<select id="year">
+			<option value="FE">FE</option>
+			<option value="SE">SE</option>
+			<option value="TE">TE</option>
+			<option value="BE">BE</option>
+		</select><br/><br/>
+		<input type="submit" value="Submit">
+		</form>
+			<h2 id="msg"></h2>
+		<script>
+			function find()
+			{
+				event.preventDefault();
+				let action=document.activeElement.value;
+				let name=document.getElementById("name");
+				let year=document.getElementById("year");
+				let msg=document.getElementById("msg");
+				
+				if(name.value==="")
+				{
+					alert("Please enter name");
+					msg.innerHTML="";
+					name.focus();
+					return;
+				}
+	
+				if(!name.value.match("^[A-Za-z]+$"))
+				{
+					alert("name should contain only alphabets");
+					msg.innerHTML="";
+					name.focus();
+					return;
+				}
+				let ans="Student Name :" + name.value +"      Engineering Year :"+year.value;
+				msg.innerHTML=ans;
+	}
+		</script>
+	</center>
+	</body>
+</html>
